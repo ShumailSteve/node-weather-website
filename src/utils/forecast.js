@@ -17,23 +17,18 @@ const forecast = (lat, long, callback) =>
                                 }
                                else 
                                 {
-                                        const temp = response.body.currently.temperature
-                                        const precip = response.body.currently.precipProbability
+                                        const temp = response.body.currently.temperature;
+                                        const precip = response.body.currently.precipProbability;                                      
+                                        const summary = response.body.daily.data[0].summary;
+                                        const highTemp = response.body.daily.data[0].temperatureHigh;
+                                        const lowTemp = response.body.daily.data[0].temperatureLow;                                                              
                                         
-                                         callback(undefined, response.body.daily.data[0].summary + ' It is currently ' + temp + ' °C Out. There is ' + precip + ' chances of rain.'   )
-                                }
-                            
-                                
+                                        callback(undefined, summary + ' It is currently ' + temp + ' °C Out. This high today is ' + highTemp + ' °C with a low of ' + lowTemp + ' °C. There is ' + precip + ' chances of rain.');
+                                }                                                        
                         })
         }
     
         module.exports = forecast;
 
        
-        // forecast(24.87, 67.11, (error, forecastData) => {
-        //         if (error)
-        //                 console.log(error);
-        //         console.log(forecastData);
-                
-                        
-        // })
+     
