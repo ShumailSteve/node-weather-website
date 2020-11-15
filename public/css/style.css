@@ -1,17 +1,39 @@
 body{
-    color: #333333;
+    color: #2e2e2e;
     font-family: arial;
     max-width: 650px;
     margin: 0 auto;
     padding: 0 16px;
-
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+a {
+    color: black;
+    font-weight: bold;
+}
+
+#message-1 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#note {
+    font-style: italic;
+}
+
+a:hover {
+    background-color: white;
+}
 .main-content{
     flex-grow: 1;
+    background-color: lightgray
+}
+
+.wrapper {
+    text-align: center;
+    margin: 20px;
 }
 
 footer{
@@ -19,11 +41,12 @@ footer{
     border-top: 1px solid;
     margin-top: 16px;
     padding: 16px 0;
+    text-align: center;
 }
 
 header{
     margin-top: 16px;
-    padding-top: 48px;
+    padding-top: 15px;
 }
 
 h1{
@@ -32,7 +55,7 @@ h1{
 }
 
 header a{
-    color: #888888;
+    color: #6e6464;
     margin-right: 16px;
     text-decoration: none;
 }
@@ -44,6 +67,7 @@ header a{
 input{
     border: 1px solid #cccccc;
     padding: 8px;
+    width: 250px;
 }
 
 button{
@@ -52,4 +76,18 @@ button{
     cursor: pointer;
     background-color: #888888;
     color: white;
+}
+
+#result table, td, th {
+    margin:  0 auto;
+    width: 30em;
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 10px;
+}
+
+@media(max-width:600px) {
+    #result table, td, th {
+        width: 10em;
+    }
 }

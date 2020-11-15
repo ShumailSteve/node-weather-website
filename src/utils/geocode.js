@@ -32,12 +32,3 @@ const geocode = (address, callback) =>
 }
 
 module.exports = geocode;
-
-
-// geocode('12What', (a, b) => {
-//         if (a)      
-//                 console.log(a);
-//         console.log(b);
-        
-                
-// })

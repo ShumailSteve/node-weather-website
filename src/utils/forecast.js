@@ -17,13 +17,25 @@ const forecast = (lat, long, callback) =>
                                 }
                                else 
                                 {
-                                        const temp = response.body.currently.temperature;
+                                        const currentTemp = response.body.currently.temperature;
                                         const precip = response.body.currently.precipProbability;                                      
                                         const summary = response.body.daily.data[0].summary;
                                         const highTemp = response.body.daily.data[0].temperatureHigh;
-                                        const lowTemp = response.body.daily.data[0].temperatureLow;                                                              
+                                        const lowTemp = response.body.daily.data[0].temperatureLow;
+
+                                        // Weather details object 
+                                        const weatherDetails = {
+                                                latitude: lat,
+                                                longitude: long,
+                                                summary,
+                                                currentTemp,
+                                                highTemp,
+                                                lowTemp,
+                                                precip        
+                                        }                                                             
                                         
-                                        callback(undefined, summary + ' It is currently ' + temp + ' °C Out. This high today is ' + highTemp + ' °C with a low of ' + lowTemp + ' °C. There is ' + precip + ' chances of rain.');
+                                        // callback(undefined, summary + ' It is currently ' + temp + ' °C Out. This high today is ' + highTemp + ' °C with a low of ' + lowTemp + ' °C. There is ' + precip + ' chances of rain.');
+                                        callback(undefined, weatherDetails);
                                 }                                                        
                         })
         }

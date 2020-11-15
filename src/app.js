@@ -25,7 +25,7 @@ app.use(express.static(publicDirPath));
 app.get('', (req, res) => {
         res.render('index', {
             title: 'Weather App',
-            name: "SK"
+            name: "Shumail Steve"
         });    
 })
 
@@ -33,7 +33,7 @@ app.get('', (req, res) => {
 app.get('/about', (req, res) => {
         res.render('about', {
            title: 'About Page',
-           name: 'SK'
+           name: 'Shumail Steve'
         });
 })
 
@@ -42,13 +42,14 @@ app.get('/help', (req, res) => {
         res.render('help', {
             title: 'Help Page',
             helpText: 'This is some helpful text.',
-            name: 'SK'
+            name: 'Shumail Steve'
         });
 })
 
 app.get('/weather', (req, res) => {
     if (!req.query.address) 
     {
+        console.log("Epry");
         return res.send({
             Error: 'No address provided in Url '
         })
@@ -58,13 +59,15 @@ app.get('/weather', (req, res) => {
                 {
                     return res.send({ error })
                 }
-                forecast(latitude, longitude, (error, forecastData) => {
+                forecast(latitude, longitude, (error, weatherDetails) => {
                         if (error)
                         {
                            return res.send({ error })
                         }
+
+                        // Send weather details 
                         res.send({
-                            forecast: forecastData,
+                            weatherDetails,
                             location,
                             address: req.query.address
                         })
@@ -75,14 +78,14 @@ app.get('/weather', (req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404 page', {
         title: '404',
-        name: 'SK',
+        name: 'Shumail Steve',
         errorMessage: "help article not found"
     })
 })
 app.get('*', (req, res) => {
         res.render('404 page', {
             title: '404',
-            name: 'SK',
+            name: 'Shumail Steve',
             errorMessage: "404 page Error"
         })
 
